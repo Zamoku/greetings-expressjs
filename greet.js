@@ -3,7 +3,7 @@ module.exports = function greet(){
     let greetMessage = ''
     let name = ''
     let language = ''
-    let arrayName = {}
+    let object = {}
     
 
     function setGreet(obj) {
@@ -12,16 +12,10 @@ module.exports = function greet(){
 
     }
 
-    function getCounter(){
-        arrayName = setGreet(obj)
-
-        return arrayName.length
-    }
-
+    
     
     function getGreetMessage() {
 
-     
         if (language === "isiXhosa") {
             greetMessage = "Molo, " + name
         }
@@ -32,13 +26,26 @@ module.exports = function greet(){
             greetMessage = "Hallo, " + name
         }
         
+        objectAdd(name)
         return greetMessage
     }
-
+    
+    function objectAdd(name){
+        if(object[name] !== undefined){
+            object[name]++
+        } else {
+            object[name] = 1
+        }
+    }
+    
+    function getCounter(name){
+        return object[name]
+     }
 
     return{
         setGreet,
         getGreetMessage,
-        getCounter
+        getCounter,
+        objectAdd
     }
 }

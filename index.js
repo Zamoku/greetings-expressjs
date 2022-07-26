@@ -2,6 +2,8 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Greet = require('./greet')
+const flash = require('express-flash');
+const session = require('express-session');
 
 
 
@@ -23,6 +25,7 @@ app.get('/', function (req, res) {
     res.render('index',
         {
             greetMsg: greet.getGreetMessage(),
+            getCounter: greet.getCounter()
         })
 })
 
@@ -31,10 +34,12 @@ app.post('/greet', function (req, res) {
         name: req.body.setName,
         language: req.body.langType,
     });
-  
+    greet.objectAdd()
     console.log(greet.getGreetMessage())
+    console.log(greet.getCounter())
     res.redirect('/')
 })
+
 
 
 const PORT = process.env.PORT || 3000

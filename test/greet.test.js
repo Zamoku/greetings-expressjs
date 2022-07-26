@@ -26,18 +26,18 @@ describe("This is to test the greet function", function(){
     // })
     it("should return the counter of greeting",function(){
         var greetings =  Greetings();
-        greetings.setGreet({name: "Zandile", language: "isiXhosa"})
-        greetings.setGreet({name: "Zandile", language: "isiXhosa"})
+        greetings.objectAdd()
+        greetings.objectAdd()
        // greetings.countGreet();
-        assert.equal(2,greetings.getCounter())
+        assert.equal(2, greetings.getCounter())
 
 
 
-    //     var greetings2 =  Greetings();
-    //     greetings2.setGreet("Nomzamo")
-    //     greetings2.setGreet("Zamo")
-    //     greetings2.setGreet("Vuyokazi")
-    //     assert.equal(3,greetings2.getCounter())
+        // var greetings2 =  Greetings();
+        // greetings2.setGreet("Nomzamo")
+        // greetings2.setGreet("Zamo")
+        // greetings2.setGreet("Vuyokazi")
+        // assert.equal(3,greetings2.objectAdd())
 
      })
 //     it("should return an error message if the name added with special characters",function(){
