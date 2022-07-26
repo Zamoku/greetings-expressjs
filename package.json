@@ -1,0 +1,22 @@
+{
+  "name": "greeting-with-routes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "greetroute.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node greet.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "mocha": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
