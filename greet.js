@@ -25,8 +25,6 @@ module.exports = function greet(){
         else if (language === "Afrikaans") {
             greetMessage = "Hallo, " + name
         }
-        
-        objectAdd(name)
         return greetMessage
     }
     
@@ -42,10 +40,20 @@ module.exports = function greet(){
         return object[name]
      }
 
+    function allCounter(){
+        return Object.keys(object).length;
+    }
+
+     function getNames(){
+         return Object.keys(object)
+     }
+
     return{
         setGreet,
+        getNames,
         getGreetMessage,
         getCounter,
-        objectAdd
+        objectAdd,
+        allCounter
     }
 }

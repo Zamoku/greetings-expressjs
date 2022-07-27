@@ -7,6 +7,8 @@ const session = require('express-session');
 
 
 
+
+
 const app = express();
 const greet = Greet();
 
@@ -25,7 +27,7 @@ app.get('/', function (req, res) {
     res.render('index',
         {
             greetMsg: greet.getGreetMessage(),
-            getCounter: greet.getCounter()
+            getCounter: greet.allCounter()
         })
 })
 
@@ -34,12 +36,24 @@ app.post('/greet', function (req, res) {
         name: req.body.setName,
         language: req.body.langType,
     });
-    greet.objectAdd()
-    console.log(greet.getGreetMessage())
-    console.log(greet.getCounter())
+    greet.objectAdd(req.body.setName)
+
     res.redirect('/')
+});
+
+app.get('/greeted', function (req, res) {
+    res.render('greeted', {
+        actions: greet.getNames()
+    })
+
 })
 
+app.get('/actions/:username', function (req, res) {
+    res.render('actions', {
+        username: req.params.username,
+        namecount: greet.getCounter(req.params.username)
+    })
+})
 
 
 const PORT = process.env.PORT || 3000

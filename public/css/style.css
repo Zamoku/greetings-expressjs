@@ -4,19 +4,35 @@
     border : 1px solid #ddd;
     height: auto;
     margin-bottom: 1em;
+    margin-top: 20px;
+    background-color: #EFC050;
   }
   
-  .warning {
-    color: orange;
-    font-weight: bold;
-  }
-  
-  .danger {
-    color: crimson;
-    font-weight: bold;
-  }
-  
-  .total {
-    font-weight: bold;
-    font-size: 2em;
-  }
+ .users{
+  width: 50px;
+  border: 2px solid #708186;
+  padding: 5px;
+  margin-top: 5px; 
+  background-color: #a5987a;
+  border-radius: 7px ; 
+ }
+ /* a:hover, a:active {
+  background-color: #EFC050;
+} */
+span{
+  font-size: large;
+}
+label{
+  font-size: large;
+}
+.greetMsg{
+  font-size: large;
+}
+input
+{
+  font-size: large;
+}
+.getCounter{
+  font-size: large;
+  font-style: oblique;
+}

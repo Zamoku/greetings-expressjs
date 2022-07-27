@@ -8,22 +8,23 @@
     <title>Greetings</title>
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/simple-grid.css">
 </head>
 
 <body>
     <div class="container">
         <div class="row">
 
-            <div class="twelve columns box">
+            <div class="seven columns box center">
                 <form action="/greet" method="POST">
-                    <h1>Greetings</h1>
+                    <h1 class="text-center">Greetings</h1>
                     <label for="">Name</label><input type="text" name="setName" value="{{setName.newArray}}">
                    
                     <form action="/language" method="POST">
                             <label class="">
                         <input type="radio" name="langType" value="English" class="greetMsgType">
                         <span class="label-body">English</span>
-                    </label>
+                    </label> v
                     <label class="">
                         <input type="radio" name="langType" value="Afrikaans" class="greetMsgType">
                         <span class="label-body">Afrikaans</span>
@@ -32,9 +33,13 @@
                         <input type="radio" name="langType" value="isiXhosa" class="greetMsgType">
                         <span class="label-body">isiXhosa</span>
                     </label>
+                    <div class="getCounter"><u>{{getCounter}}</u></div><br>
                     <button class="button-primary" type="submit" name="button">Greet Me</button>
-                    <div class="greetMsg">{{greetMsg}}</div>
-                    <div class="getCounter">{{getCounter}}</div>
+                    <div class="greetMsg"><i><strong>{{greetMsg}}</strong></i></div><br>
+                    <div class="users center">
+                    <a href="/greeted">Users</a>
+                    </div>
+                    
                     </form>
                 
 
