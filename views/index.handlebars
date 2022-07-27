@@ -6,38 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greetings</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/simple-grid.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="row">
 
-            <div class="seven columns box center">
+            <div class="eight columns box center">
                 <form action="/greet" method="POST">
-                    <h1 class="text-center">Greetings</h1>
-                    <label for="">Name</label><input type="text" name="setName" value="{{setName.newArray}}">
+                    <h1 class="text-center">Greetings</h1><br>
+                    <label for="">Name</label>
+                    <input type="text" name="setName" value="{{setName.newArray}}"> <br><br><br>
                    
                     <form action="/language" method="POST">
-                            <label class="">
+                            <label class="radio-inline">
                         <input type="radio" name="langType" value="English" class="greetMsgType">
                         <span class="label-body">English</span>
-                    </label> v
-                    <label class="">
+                    </label> 
+                    <label class="radio-inline">
                         <input type="radio" name="langType" value="Afrikaans" class="greetMsgType">
                         <span class="label-body">Afrikaans</span>
                     </label>
-                      <label class="">
+                      <label class="radio-inline">
                         <input type="radio" name="langType" value="isiXhosa" class="greetMsgType">
                         <span class="label-body">isiXhosa</span>
-                    </label>
+                    </label><br><br>
                     <div class="getCounter"><u>{{getCounter}}</u></div><br>
-                    <button class="button-primary" type="submit" name="button">Greet Me</button>
+                    <button class="button-primary" type="submit" name="button">Greet Me</button><br><br>
                     <div class="greetMsg"><i><strong>{{greetMsg}}</strong></i></div><br>
                     <div class="users center">
-                    <a href="/greeted">Users</a>
+                    <a href="/greeted">View greeted users</a>
                     </div>
                     
                     </form>

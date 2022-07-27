@@ -9,12 +9,17 @@
   }
   
  .users{
-  width: 50px;
+  width: 300px;
   border: 2px solid #708186;
   padding: 5px;
   margin-top: 5px; 
-  background-color: #a5987a;
+  background-color: #708186;
   border-radius: 7px ; 
+  font-size: large;
+ }
+ .users:hover{
+  background-color: #db8f1e;
+  border: 2px solid #db8f1e
  }
  /* a:hover, a:active {
   background-color: #EFC050;
