@@ -5,30 +5,38 @@ module.exports = function greet(){
     let language = ''
     let object = {}
     
-
+    
+    
     function setGreet(obj) {
         name = obj.name
         language = obj.language
-
+        
     }
-
     
     
     function getGreetMessage() {
-
-        if (language === "isiXhosa") {
+        let regex = /^[a-z]+$/gi
+        
+        if (name === null && language !== null) return;
+        
+        if(!regex.test(name)) return;
+        
+        if (language === "isiXhosa" && name !== "") {
             greetMessage = "Molo, " + name
         }
-        if (language === "English") {
+        else if (language === "English" && name !== "") {
             greetMessage = "Hello, " + name
         }
-        else if (language === "Afrikaans") {
+         else if (language === "Afrikaans" && name !== "" ) {
             greetMessage = "Hallo, " + name
         }
+       
         return greetMessage
     }
     
     function objectAdd(name){
+        let regex = /^[a-z]+$/gi
+        if(!name || !regex.test(name) || language !== null) return;
         if(object[name] !== undefined){
             object[name]++
         } else {
@@ -47,6 +55,8 @@ module.exports = function greet(){
      function getNames(){
          return Object.keys(object)
      }
+
+    
 
     return{
         setGreet,

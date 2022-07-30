@@ -6,6 +6,7 @@
     margin-bottom: 1em;
     margin-top: 20px;
     background-color: #EFC050;
+    
   }
   
  .users{
@@ -40,4 +41,8 @@ input
 .getCounter{
   font-size: large;
   font-style: oblique;
+}
+.message{
+  color: red ;
+  font-weight: bold;
 }

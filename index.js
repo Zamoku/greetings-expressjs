@@ -6,9 +6,6 @@ const flash = require('express-flash');
 const session = require('express-session');
 
 
-
-
-
 const app = express();
 const greet = Greet();
 
@@ -18,6 +15,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //parse application/json
 app.use(bodyParser.json());
 
+app.use(session({
+    secret : "my secret",
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(flash());
+
+
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
@@ -25,21 +31,49 @@ app.use(express.static('public'));
 
 app.get('/', function (req, res) {
     res.render('index',
-        {
-            greetMsg: greet.getGreetMessage(),
-            getCounter: greet.allCounter()
-        })
+    {
+        greetMsg: greet.getGreetMessage(),
+        getCounter: greet.allCounter(),
+     
+    }) 
 })
-
-app.post('/greet', function (req, res) {
-    greet.setGreet({
-        name: req.body.setName,
-        language: req.body.langType,
+    app.post('/greet', function (req, res) {
+        greet.setGreet({
+            name: req.body.setName,
+            language: req.body.langType,
+        });
+        let name = req.body.setName
+        let language = req.body.langType
+        let regex = /^[a-z A-Z]+$/gi
+    
+   
+         if(name === "" && !language){
+            req.flash("info", "Please enter name and select language")
+            // res.locals.redirect = '/greet'
+            // next();
+            
+         }
+         
+         else if(!language){
+            req.flash("info", "Please select language")
+            // res.locals.redirect = '/greet'
+            // next();
+         }
+         else if(name === "" && language){
+            req.flash("info", "Please add name")
+            // res.locals.redirect = '/greet'
+            // next();
+         }
+         else if(!regex.test(name)){
+            req.flash("info", "Please enter correct name")
+            // res.locals.redirect = '/greet'
+            // next();
+         }
+        //res.redirect('/')
+        greet.objectAdd(req.body.setName)
+        res.redirect('/')
     });
-    greet.objectAdd(req.body.setName)
 
-    res.redirect('/')
-});
 
 app.get('/greeted', function (req, res) {
     res.render('greeted', {
@@ -55,8 +89,7 @@ app.get('/actions/:username', function (req, res) {
     })
 })
 
-
-const PORT = process.env.PORT || 3022
+const PORT = process.env.PORT || 3023
 
 app.listen(PORT, function () {
     console.log('App started at port:', PORT)
