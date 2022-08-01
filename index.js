@@ -48,28 +48,21 @@ app.get('/', function (req, res) {
     
    
          if(name === "" && !language){
-            req.flash("info", "Please enter name and select language")
-            // res.locals.redirect = '/greet'
-            // next();
-            
+            req.flash("info", "Please enter name and select language")  
          }
          
          else if(!language){
             req.flash("info", "Please select language")
-            // res.locals.redirect = '/greet'
-            // next();
+          
          }
          else if(name === "" && language){
             req.flash("info", "Please add name")
-            // res.locals.redirect = '/greet'
-            // next();
+          
          }
          else if(!regex.test(name)){
             req.flash("info", "Please enter correct name")
-            // res.locals.redirect = '/greet'
-            // next();
+           
          }
-        //res.redirect('/')
         greet.objectAdd(req.body.setName)
         res.redirect('/')
     });

@@ -33,30 +33,31 @@ module.exports = function greet(){
        
         return greetMessage
     }
-    
+    //Adding the name to the object {Nomzamo: 2}, {Zeenat: 1}
     function objectAdd(name){
         let regex = /^[a-z]+$/gi
-        if(!name || !regex.test(name) || language !== null) return;
+        if(!name && language !== null) return;
+
+        if(!regex.test(name)) return;
+
         if(object[name] !== undefined){
             object[name]++
         } else {
             object[name] = 1
         }
     }
-    
+    //counts how namy times one name is greeted
     function getCounter(name){
         return object[name]
      }
-
+    //Counts each name
     function allCounter(){
         return Object.keys(object).length;
     }
-
+    //get the list of names on second page
      function getNames(){
          return Object.keys(object)
      }
-
-    
 
     return{
         setGreet,
