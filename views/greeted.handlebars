@@ -1,18 +1,17 @@
 
-  <nav class="center navbar box">
-      <ul >
-        <li><a href="/">Home</a></li>
-        <li><a href="/greeted">View greeted Users</a></li>
-        <li><a href="/actions">Count Names greeted</a></li>
+  <nav class="nine columns center box">
+      <ul class="main" >
+        <li ><a class="main" href="/">Back to Home Page</a></li>
+        <li ><a class="main" href="/greeted">View greeted Users</a></li>
       </ul>
     
     </nav>
-<div class="row seven columns center">
-  <h1>Greeted names</h1>
+<div class="row nine columns div_greet center">
+  <h1 class="greet">Greeted names</h1>
 
   {{#each actions}}
-  <ul>
-    <li><a href="/actions/{{this}}" class="gretedNames">{{this}}</a></li>
+  <ul class="greet">
+    <li class="greet" ><a class="agreet" href="/actions/{{this}}" >{{this}}</a></li>
   </ul>
   {{/each}}
 </div>

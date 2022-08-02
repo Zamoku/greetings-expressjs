@@ -1,76 +1,84 @@
 h1{
   color: rgb(128, 12, 12);
 }
+h1.greet{
+  color: rgb(128, 12, 12);
+}
 .box {
-    padding: 0.75em;
+    padding: 0.40em;
     border-radius : 0.5em;
     border : 1px solid #ddd;
     height: auto;
     margin-bottom: 1em;
     margin-top: 20px;
     background-color: #EFC050;
-    
   }
-  .navbar{
-    padding: 0.75em;
-     margin-bottom: 1em;
-    margin-top: 20px;   
+  .greet_box {
+    padding: 0.40em;
+    border-radius : 0.5em;
+    border : 1px solid #ddd;
+    height: auto;
+    background-color: #EFC050;
+    justify-content: center;
+  }
+  .users{
+    width: 300px;
+    border: 2px solid #800a0a;
+    padding: 5px;
+    margin-top: 5px; 
+    background-color: #800a0a;
+    border-radius: 7px ; 
+    font-size: large;
+   }
+   .users:hover{
+    background-color: #db8f1e;
+    border: 2px solid #db8f1e
+   }
+a#greeted{
+  color: white;
 }
-
-ul .menu{
-margin-left: auto;
-margin-right: auto;
-}
-
-ul {
+ul.main{
   list-style-type: none;
   margin: 0; 
-  padding-right: 100; 
   overflow: hidden; 
   background-color: rgb(128, 12, 12);
+  margin-left: auto; 
+  margin-right: auto;
 }
 
-li {
+li.greet{
+  background-color: rgb(211, 167, 117); 
+  /* padding: 20px 20px 20px 20px;  */
+  /* text-align:center; */
+  justify-content: center; 
+  list-style-type: none;
+  /*float: right; */
+}
+ul.greet{
+  justify-content: center;
+}
+li.main {
   float: left; 
+  padding: 10px 10px 10px 100px;  
 }
 
-li a {
-  display:block;
-  color: white;
-  text-align: center;
-   padding: 14px 16px ; 
-   padding-left: 40px;
-   padding-right: 50px;
-   padding-top: 20px;
-  text-decoration: none;
+a.agreet:hover {
+  color: black;
+   padding: 10px;  
+   text-decoration: none;
+   background-color: #db8f1e;
+   
+}
+a.main{
+  color: white; 
+   text-decoration: none;
+   padding: 5px 40px 20px 40px;
 }
 
 li a:hover {
-  background-color: #EFC050;
-  padding-top: 20px;
+  background-color: #c58f11; 
+}
 
-}
- .users{
-  width: 300px;
-  border: 2px solid #800a0a;
-  padding: 5px;
-  margin-top: 5px; 
-  background-color: #800a0a;
-  border-radius: 7px ; 
-  font-size: large;
- }
- .users:hover{
-  background-color: #db8f1e;
-  border: 2px solid #db8f1e
- }
- /* a:hover, a:active {
-  background-color: #EFC050;
-} */
-ul .greetedNames{
-  background-color: greenyellow;
-  
-  
-}
 span{
   font-size: large;
 }

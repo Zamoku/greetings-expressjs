@@ -58,12 +58,16 @@ module.exports = function greet(){
      function getNames(){
          return Object.keys(object)
      }
+     function clearNmaes(){
+        return object
+     }
 
     return{
         setGreet,
         getNames,
         getGreetMessage,
         getCounter,
+        clearNmaes,
         objectAdd,
         allCounter
     }

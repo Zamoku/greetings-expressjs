@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
     {
         greetMsg: greet.getGreetMessage(),
         getCounter: greet.allCounter(),
+        clearNames: greet.clearNmaes()
      
     }) 
 })
