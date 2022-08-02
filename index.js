@@ -33,9 +33,7 @@ app.get('/', function (req, res) {
     res.render('index',
     {
         greetMsg: greet.getGreetMessage(),
-        getCounter: greet.allCounter(),
-        clearNames: greet.clearNmaes()
-     
+        getCounter: greet.allCounter()
     }) 
 })
     app.post('/greet', function (req, res) {
@@ -64,7 +62,8 @@ app.get('/', function (req, res) {
             req.flash("info", "Please enter correct name")
            
          }
-        greet.objectAdd(req.body.setName)
+         greet.objectAdd(req.body.setName)
+         console.log(greet.getGreetMessage())
         res.redirect('/')
     });
 

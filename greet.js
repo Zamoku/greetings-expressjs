@@ -16,12 +16,12 @@ module.exports = function greet(){
     
     function getGreetMessage() {
         let regex = /^[a-z]+$/gi
+
+        if(!regex.test(name)) return;
         
         if (name === null && language !== null) return;
         
-        if(!regex.test(name)) return;
-        
-        if (language === "isiXhosa" && name !== "") {
+         if (language === "isiXhosa" && name !== "") {
             greetMessage = "Molo, " + name
         }
         else if (language === "English" && name !== "") {
@@ -30,12 +30,15 @@ module.exports = function greet(){
          else if (language === "Afrikaans" && name !== "" ) {
             greetMessage = "Hallo, " + name
         }
-       
+        
         return greetMessage
     }
+    // else if(name !== null && language === null) return;
     //Adding the name to the object {Nomzamo: 2}, {Zeenat: 1}
     function objectAdd(name){
+
         let regex = /^[a-z]+$/gi
+
         if(!name && language !== null) return;
 
         if(!regex.test(name)) return;
