@@ -19,15 +19,13 @@ if (process.env.DATABASE_URL && !local) {
 // which db connection to use
 const connectionString = process.env.DATABASE_URL || 'postgresql://zamoe:zamo123@localhost:5432/greet_db';
 
-// const pool = new Pool({
-//     connectionString,
-//     ssl : useSSL
-//   });
 
 //connecting database with my connectionstring
 const db = pgp({
     connectionString,
-    ssl: {rejectUnauthorised : false}
+    ssl: {
+        rejectUnauthorized : false
+    }
 });
 
 const app = express();
