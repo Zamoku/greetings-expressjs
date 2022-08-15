@@ -25,7 +25,10 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://zamoe:zamo123
 //   });
 
 //connecting database with my connectionstring
-const db = pgp(connectionString);
+const db = pgp({
+    connectionString,
+    ssl: {rejectUnauthorised : false}
+});
 
 const app = express();
 const greetings = Greet(db);

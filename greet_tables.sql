@@ -1,1 +1,1 @@
--- CREATE TABLE IF NOT EXISTS users (id serial primary key, name text not null, name_count int not null);
+CREATE TABLE IF NOT EXISTS users (id serial primary key, name text not null, name_count int not null);
