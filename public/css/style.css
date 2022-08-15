@@ -63,7 +63,14 @@ li.main {
 }
 
 a.agreet:hover {
-  color: black;
+  color: black ;
+   padding: 10px;  
+   text-decoration: none;
+   background-color: #db8f1e;
+   
+}
+a.users:hover {
+  color: black !important;
    padding: 10px;  
    text-decoration: none;
    background-color: #db8f1e;

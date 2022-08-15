@@ -1,20 +1,13 @@
-module.exports = function greet(){
+module.exports = function greet(db){
 
     let greetMessage = ''
     let name = ''
     let language = ''
     let object = {}
     
+
     
-    
-    function setGreet(obj) {
-        name = obj.name
-        language = obj.language
-        
-    }
-    
-    
-    function getGreetMessage() {
+   async function setGreet(name, language) {
         let regex = /^[a-z]+$/gi
 
         if(!regex.test(name)) return;
@@ -30,48 +23,75 @@ module.exports = function greet(){
          else if (language === "Afrikaans" && name !== "" ) {
             greetMessage = "Hallo, " + name
         }
+        setGreet({name: "", language: ""})
         
         return greetMessage
     }
+
+   
+   async function getGreetMessage() {
+        return greetMessage;
+     
+   }
+   
+
+
     // else if(name !== null && language === null) return;
     //Adding the name to the object {Nomzamo: 2}, {Zeenat: 1}
-    function objectAdd(name){
-
-        let regex = /^[a-z]+$/gi
-
-        if(!name && language !== null) return;
-
-        if(!regex.test(name)) return;
-
-        if(object[name] !== undefined){
-            object[name]++
-        } else {
-            object[name] = 1
-        }
+    async function objectAdd(name) {
+        // let is_name = name
+  let results = await db.manyOrNone('SELECT name FROM Users where name = $1',[name])
+        if (results.length === 0){
+            results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2)', 
+        [name, 1]);
+         }
+         else{
+             results =  await db.manyOrNone('UPDATE Users SET name_count = name_count+1 where name = $1', [name])
+         }
+        
+        return results;
     }
+
+   
     //counts how namy times one name is greeted
-    function getCounter(name){
-        return object[name]
+   async function getCounter(){
+        let results = await db.manyOrNone('SELECT name FROM Users');     
+        return results.length;
      }
-    //Counts each name
-    function allCounter(){
-        return Object.keys(object).length;
-    }
+
+     async function personCounter(name){
+         
+        let results =  await db.one('SELECT name_count FROM Users where name = $1',[name])
+        console.log(results)
+    
+        return results.name_count
+     }
+
     //get the list of names on second page
-     function getNames(){
-         return Object.keys(object)
+    async function getNames(){
+        let results = await db.manyOrNone('SELECT name FROM Users ORDER BY name_count DESC');
+        return results;
+        
+
      }
-     function clearNmaes(){
-        return object
+     async function clearNames(){
+         let results = await db.none('Delete from Users');
      }
+    
+     async function deleteOne(name) {
+         let getname = await db.manyOrNone('DELETE FROM Users WHERE id = (SELECT id from Users where name = $1) returning *', [name])
+         console.log(getname)
+    
+       }
 
     return{
         setGreet,
         getNames,
-        getGreetMessage,
+        getGreetMessage, 
         getCounter,
-        clearNmaes,
+        clearNames,
         objectAdd,
-        allCounter
+        personCounter,
+        deleteOne
     }
 }

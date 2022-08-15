@@ -17,7 +17,8 @@
     "express-flash": "0.0.2",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "pg-promise": "^10.11.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

@@ -9,9 +9,13 @@
 <div class="row nine columns div_greet center">
   <h1 class="greet">Greeted names</h1>
   <p>Click on the name to see how many times the name has been greeted</p>
-  {{#each actions}}
+  <p class="message"> {{messages.info}}</p>
+  {{#each names}}
   <ul class="greet">
-    <li class="greet" ><a class="agreet" href="/actions/{{this}}" >{{this}}</a></li>
+    <li class="greet" ><a class="agreet" href="/actions/{{this.name}}" >{{this.name}}</a> <span><a class="users" href="/greeted/{{this.name}}" type="" name="delete_btn">Delete</a></span></li>
   </ul>
   {{/each}}
+  
 </div>
+
+ 
