@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greetings</title>
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/simple-grid.css">
-    <link rel="stylesheet" href="css/style.css">
+  
 </head>
 
 <body>
@@ -34,8 +31,8 @@
                         </div>
                         {{/if}}
                     <label for="">Name</label>
-                    <input type="text" name="setName" placeholder="Please enter name"> <br><br>
-
+                    <input type="text" name="setName" placeholder="Please enter name"><span class="getCounter"><u>{{getCounter}}</u></span><br><br>
+                  
                     <form action="/language" method="POST">
                         <span><strong>Please select language:</strong></span><br><br>
                         <label class="radio-inline">
@@ -50,7 +47,6 @@
                             <input type="radio" name="langType" value="isiXhosa" class="greetMsgType">
                             <span class="label-body">isiXhosa</span>
                         </label><br><br>
-                        <div class="getCounter"><u>{{getCounter}}</u></div><br>
                         <button class="button-primary greet" type="submit" name="button">Greet Me</button><br><br>
 
                         <div class="users center">
@@ -66,7 +62,7 @@
                         {{/if}}
 
                         <div class="users center">
-                            <a href="/greeted" id="greeted">View greeted users</a>
+                            <a href="/greeted" id="greeted">Greeted users</a>
                         </div>
 
                     </form>

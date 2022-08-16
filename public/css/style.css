@@ -22,18 +22,38 @@ h1.greet{
     justify-content: center;
   }
   .users{
-    width: 300px;
+    width: 190px;
     border: 2px solid #800a0a;
     padding: 5px;
     margin-top: 5px; 
-    background-color: #800a0a;
-    border-radius: 7px ; 
-    font-size: large;
+    background-color:chocolate;
+    border-radius: 7px; 
+    font-size:medium;
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 4px !important;
+    border: 1px solid #bbb;
+    box-sizing: border-box; 
+    height: 40px;
+    
    }
    .users:hover{
     background-color: #db8f1e;
-    border: 2px solid #db8f1e
+    border: 2px solid #db8f1e;
    }
+   a.users {
+    color: black !important;
+     /* padding: 10px;   */
+     text-decoration: none;
+     background-color: #db8f1e;
+     
+  }
 a#greeted{
   color: white;
 }
@@ -69,13 +89,7 @@ a.agreet:hover {
    background-color: #db8f1e;
    
 }
-a.users:hover {
-  color: black !important;
-   padding: 10px;  
-   text-decoration: none;
-   background-color: #db8f1e;
-   
-}
+
 a.main{
   color: white; 
    text-decoration: none;
@@ -95,19 +109,20 @@ label{
 .greetMsg{
   font-size: large;
 }
-input
-{
-  font-size: large;
-}
 .getCounter{
   font-size: large;
   font-style: oblique;
+  padding: 20px;
 }
 .message{
   color: red ;
   font-weight: bold;
 }
 .success_message{
-  color:chocolate ;
+  color:brown ;
   font-weight: bold;
+}
+.delete_btn{
+  background-color: red;
+  border-radius: 3px solid #db8f1e
 }

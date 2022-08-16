@@ -116,7 +116,7 @@ app.get('/greeted/:username', async function (req, res) {
     res.redirect('/greeted')
 })
 app.get('/clear', async function (req, res) {
-    req.flash('success','You have succesfully removed all names in your table')
+    req.flash('success','All names are deleted')
      await greetings.clearNames()
 
     res.redirect('/')

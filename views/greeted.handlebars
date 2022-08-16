@@ -12,7 +12,7 @@
   <p class="message"> {{messages.info}}</p>
   {{#each names}}
   <ul class="greet">
-    <li class="greet" ><a class="agreet" href="/actions/{{this.name}}" >{{this.name}}</a> <span><a class="users" href="/greeted/{{this.name}}" type="" name="delete_btn">Delete</a></span></li>
+    <li class="greet" ><a class="agreet" href="/actions/{{this.name}}" >{{this.name}}</a> <span><a class="delete_btn" href="/greeted/{{this.name}}" type="" name="delete_btn">Delete</a></span></li>
   </ul>
   {{/each}}
   

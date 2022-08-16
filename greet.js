@@ -41,7 +41,7 @@ module.exports = function greet(db){
     async function objectAdd(name) {
         // let is_name = name
   let results = await db.manyOrNone('SELECT name FROM Users where name = $1',[name])
-        if (results.length === 0){
+        if (results.length === 0 & name !== ""){
             results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2)', 
         [name, 1]);
          }
@@ -49,7 +49,7 @@ module.exports = function greet(db){
              results =  await db.manyOrNone('UPDATE Users SET name_count = name_count+1 where name = $1', [name])
          }
         
-        return results;
+        // return results;
     }
 
    
@@ -62,7 +62,7 @@ module.exports = function greet(db){
      async function personCounter(name){
          
         let results =  await db.one('SELECT name_count FROM Users where name = $1',[name])
-        console.log(results)
+        // console.log(results)
     
         return results.name_count
      }
@@ -79,7 +79,6 @@ module.exports = function greet(db){
     
      async function deleteOne(name) {
          let getname = await db.manyOrNone('DELETE FROM Users WHERE id = (SELECT id from Users where name = $1) returning *', [name])
-         console.log(getname)
     
        }
 
