@@ -49,7 +49,7 @@ module.exports = function greet(db){
              results =  await db.manyOrNone('UPDATE Users SET name_count = name_count+1 where name = $1', [name])
          }
         
-        // return results;
+         return results;
     }
 
    
