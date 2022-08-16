@@ -107,3 +107,7 @@ input
   color: red ;
   font-weight: bold;
 }
+.success_message{
+  color:chocolate ;
+  font-weight: bold;
+}

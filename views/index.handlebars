@@ -58,7 +58,12 @@
                          </div><br><br>
                          
                         <div class="greetMsg"><u><i><strong>{{greetMsg}}</strong></i></u></div><br>
-
+                            {{#if messages.success}}
+                        <div class="entry">
+                            <p class="success_message"> {{messages.success}}</p>
+                          
+                        </div>
+                        {{/if}}
 
                         <div class="users center">
                             <a href="/greeted" id="greeted">View greeted users</a>

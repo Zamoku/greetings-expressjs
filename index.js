@@ -110,13 +110,13 @@ app.get('/actions/:username', async function (req, res) {
 })
 app.get('/greeted/:username', async function (req, res) {
   
-    req.flash('info','You have succesfully deleted the name')
+    req.flash('success','You have succesfully deleted the name')
          await greetings.deleteOne(req.params.username)
 
     res.redirect('/greeted')
 })
 app.get('/clear', async function (req, res) {
-    req.flash('info','You have succesfully removed all names in your table')
+    req.flash('success','You have succesfully removed all names in your table')
      await greetings.clearNames()
 
     res.redirect('/')

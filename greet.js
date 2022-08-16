@@ -70,8 +70,7 @@ module.exports = function greet(db){
     //get the list of names on second page
     async function getNames(){
         let results = await db.manyOrNone('SELECT name FROM Users ORDER BY name_count DESC');
-        return results;
-        
+        return results; 
 
      }
      async function clearNames(){
