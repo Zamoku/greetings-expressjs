@@ -33,7 +33,7 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: create postgresql tables
-      run: PGPASSWORD=zamo123 psql -h localhost -U zamoe -d greet_db_test -a -f ./greet-tables.sql
+      run: PGPASSWORD=zamo123 psql -h localhost -U zamoe -d greet_db_test -a -f ./greet_tables.sql 
     - name: run tests with postgresql
       run:
         npm test
