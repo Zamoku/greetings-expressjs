@@ -1,5 +1,5 @@
 const assert = require('assert');
-const Greetings = require('../services/greet')
+const Greetings = require('../greet')
 const pgPromise = require("pg-promise");
 // const { doesNotMatch } = require('assert');
 const pgp = pgPromise({})
@@ -14,7 +14,7 @@ const db = pgp(connectionString)
 
         it('should insert names into the db test', async function(){
             
-            // 
+            
             let greetings = Greetings(db);
             let greet = await greetings.objectAdd(
                 'Nomzamo'
