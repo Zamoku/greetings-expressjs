@@ -1,7 +1,7 @@
 const assert = require('assert');
-const Greetings = require('../greet')
+const Greetings = require('../services/greet')
 const pgPromise = require("pg-promise");
-const { doesNotMatch } = require('assert');
+// const { doesNotMatch } = require('assert');
 const pgp = pgPromise({})
 
 const connectionString = process.env.DATABASE_URL || 'postgresql://zamoe:zamo123@localhost:5432/greet_db_test';

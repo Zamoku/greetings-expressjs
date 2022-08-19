@@ -1,13 +1,18 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const Greet = require('./greet');
 const flash = require('express-flash');
 const session = require('express-session');
+const Greet = require('./greet');
+const GreetRoutes = require('./greet_route');
 
 
 const pgPromise = require("pg-promise")
 const pgp = pgPromise({})
+
+const GreetService = require('./greet');
+
+
 
 // SSL connection
 let useSSL = false;
@@ -29,8 +34,10 @@ const db = pgp({
 });
 
 const app = express();
-const greetings = Greet(db);
+// const greetings = Greet(db);
 
+const greet = Greet(db);
+const greetRoutes = GreetRoutes(greet);
 
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -46,81 +53,19 @@ app.use(session({
 
 app.use(flash());
 
-
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-//main page sending the greet message
-app.get('/', async function (req, res) {
-    res.render('index',
-        {
-            greetMsg: await greetings.getGreetMessage(),
-            getCounter: await greetings.getCounter()
-
-        })
-})
-//
-app.post('/greet', async function (req, res) {
-    await greetings.setGreet(
-        req.body.setName, req.body.langType
-    );
-    await greetings.objectAdd(req.body.setName)
-
-    let name = req.body.setName
-    let language = req.body.langType
-    let regex = /^[a-z A-Z]+$/gi
+app.get('/', greetRoutes.greetUser)
+app.post('/greet', greetRoutes.setGreet)
+app.get('/greeted', greetRoutes.showNames)
+app.get('/actions/:username', greetRoutes.personCounter)
+app.get('/greeted/:username', greetRoutes.deleteOne)
+app.get('/clear', greetRoutes.clearNames)
 
 
-    if (name === "" && !language) {
-        req.flash("info", "Please enter name and select language")
-    }
-
-    else if (!language) {
-        req.flash("info", "Please select language")
-
-    }
-    else if (name === "" && language) {
-        req.flash("info", "Please add name")
-
-    }
-    else if (!regex.test(name)) {
-        req.flash("info", "Please enter correct name")
-
-    }
-    res.redirect('/')
-});
-
-//getting the list of users 
-app.get('/greeted', async function (req, res) {
-    res.render('greeted', {
-        names: await greetings.getNames(),
-
-    })
-
-})
-
-app.get('/actions/:username', async function (req, res) {
-    res.render('actions', {
-
-        username: req.params.username,
-        namecount: await greetings.personCounter(req.params.username)
-    })
-})
-app.get('/greeted/:username', async function (req, res) {
-  
-    req.flash('success','You have succesfully deleted the name')
-         await greetings.deleteOne(req.params.username)
-
-    res.redirect('/greeted')
-})
-app.get('/clear', async function (req, res) {
-    req.flash('success','All names are deleted')
-     await greetings.clearNames()
-
-    res.redirect('/')
-})
 
 const PORT = process.env.PORT || 3027
 

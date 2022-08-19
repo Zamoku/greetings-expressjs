@@ -1,3 +1,4 @@
+
 module.exports = function greet(db){
 
     let greetMessage = ''
