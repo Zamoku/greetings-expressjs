@@ -1,11 +1,11 @@
-module.exports = function GreetRoutes(greet) {
+module.exports = function GreetRoutes(greet, greetFunct) {
 
     //main page sending the greet message
     async function greetUser(req, res) {
 
         res.render('index',
             {
-                greetMsg: await greet.getGreetMessage(),
+                greetMsg: await greetFunct.getGreetMessage(),
                 getCounter: await greet.getCounter()
 
             })
@@ -13,7 +13,7 @@ module.exports = function GreetRoutes(greet) {
 
 
     async function setGreet(req, res) {
-        await greet.setGreet(
+        await greetFunct.setGreet(
             req.body.setName, req.body.langType
         );
         await greet.objectAdd(req.body.setName)
@@ -43,13 +43,13 @@ module.exports = function GreetRoutes(greet) {
     };
 
 
-    // //getting the list of users 
-    async function showNames (req, res) {
+    //getting the list of users 
+    async function showNames(req, res) {
         res.render('greeted', {
             names: await greet.getNames(),
-    
+
         })
-    
+
     }
 
     async function personCounter(req, res) {

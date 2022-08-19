@@ -49,7 +49,6 @@ h1.greet{
    }
    a.users {
     color: black !important;
-     /* padding: 10px;   */
      text-decoration: none;
      background-color: #db8f1e;
      
@@ -68,11 +67,8 @@ ul.main{
 
 li.greet{
   background-color: rgb(175, 108, 31); 
-  /* padding: 20px 20px 20px 20px;  */
-  /* text-align:center; */
   justify-content: center; 
   list-style-type: none;
-  /*float: right; */
 }
 ul.greet{
   justify-content: center;

@@ -5,6 +5,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const Greet = require('./greet');
 const GreetRoutes = require('./greet_route');
+const GreetFunct = require('./greet_function')
 
 
 const pgPromise = require("pg-promise")
@@ -29,7 +30,7 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://zamoe:zamo123
 const db = pgp({
     connectionString,
     ssl: {
-        rejectUnauthorized : false
+        rejectUnauthorized: false
     }
 });
 
@@ -37,7 +38,8 @@ const app = express();
 // const greetings = Greet(db);
 
 const greet = Greet(db);
-const greetRoutes = GreetRoutes(greet);
+const greetFunct = GreetFunct()
+const greetRoutes = GreetRoutes(greet, greetFunct);
 
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
