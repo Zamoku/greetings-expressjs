@@ -11,7 +11,7 @@ module.exports = function greet(db) {
         
 
         if (results.length == 0 && actualName !== "" && language !== undefined && regex.test(actualName)) {
-            console.log(!regex.test(actualName))
+    
             results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2) ',
                 [actualName, 1]);
               

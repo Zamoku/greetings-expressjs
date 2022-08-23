@@ -32,15 +32,15 @@ describe('The basic database web app', function () {
 
 
         let greetings = Greetings(db);
-        await greetings.objectAdd('Nomzamo'
+        await greetings.objectAdd('Nomzamo','English'
         );
 
         let greetings2 = Greetings(db);
-        await greetings2.objectAdd('Zandile'
+        await greetings2.objectAdd('Zandile','isiXhosa'
         );
 
         let greetings3 = Greetings(db);
-        await greetings3.objectAdd('Yonela'
+        await greetings3.objectAdd('Yonela','English'
         );
 
 

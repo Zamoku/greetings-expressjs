@@ -7,7 +7,7 @@ describe('greetings function', function () {
         let greetings = Greet();
 
         greetings.setGreet("Nomzamo", "English")
-        assert.equal("Hello, Nomzamo", greetings.setGreet())
+        assert.equal("Hello, Nomzamo", greetings.getGreetMessage())
 
 
         var greetings2 = Greet();
@@ -18,7 +18,7 @@ describe('greetings function', function () {
         let greetings = Greet();
 
         greetings.setGreet("Nomzamo", "isiXhosa")
-        assert.equal("Molo, Nomzamo", greetings.setGreet())
+        assert.equal("Molo, Nomzamo", greetings.getGreetMessage())
 
 
         var greetings2 = Greet();
@@ -29,7 +29,7 @@ describe('greetings function', function () {
         let greetings = Greet();
 
         greetings.setGreet("Nomzamo", "Afrikaans")
-        assert.equal("Hallo, Nomzamo", greetings.setGreet())
+        assert.equal("Hallo, Nomzamo", greetings.getGreetMessage())
 
 
         var greetings2 = Greet();

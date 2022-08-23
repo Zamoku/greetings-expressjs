@@ -6,7 +6,9 @@ module.exports = function GreetFunct() {
 
 
     function setGreet(name, language) {
-        let actualName = name.charAt(0).toUpperCase() + name.slice(1)
+
+        let actualName = name[0].toUpperCase() + name.slice(1)
+      
         let regex = /^[a-z]+$/gi
 
         if (!regex.test(actualName)) return;
