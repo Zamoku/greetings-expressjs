@@ -2,15 +2,22 @@
 module.exports = function greet(db) {
 
 
-    async function objectAdd(name) {
-        let results = await db.manyOrNone('SELECT name FROM Users where name = $1', [name])
-        if (results.length === 0 & name !== "") {
-            results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2)',
-                [name, 1]);
+    async function objectAdd(name, language) {
+       
+        let actualName = name.charAt(0).toUpperCase() + name.slice(1);
+        results = await db.manyOrNone('SELECT name FROM Users where name = $1', [actualName])
+        
+
+        if (results.length == 0 && actualName !== "" && language !== undefined) {
+            console.log(language)
+            results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2) ',
+                [actualName, 1]);
+              
         }
         else {
-            results = await db.manyOrNone('UPDATE Users SET name_count = name_count+1 where name = $1', [name])
+            results = await db.manyOrNone('UPDATE Users SET name_count = name_count+1 where name = $1', [actualName])
         }
+        // console.log(results)
         return results;
     }
 
@@ -29,9 +36,11 @@ module.exports = function greet(db) {
 
     //get the list of names on second page
     async function getNames() {
-        let results = await db.manyOrNone('SELECT name FROM Users ORDER BY name_count DESC');
-        return results;
+        
+        let results = await db.manyOrNone('SELECT name FROM Users ORDER BY name_count DESC' );
 
+     
+            return results
     }
     async function clearNames() {
         let results = await db.none('Delete from Users');

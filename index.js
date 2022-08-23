@@ -60,12 +60,12 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/', greetRoutes.greetUser)
-app.post('/greet', greetRoutes.setGreet)
-app.get('/greeted', greetRoutes.showNames)
-app.get('/actions/:username', greetRoutes.personCounter)
-app.get('/greeted/:username', greetRoutes.deleteOne)
-app.get('/clear', greetRoutes.clearNames)
+app.get('/', greetRoutes.greetUser);
+app.post('/greet', greetRoutes.setGreet);
+app.get('/greeted', greetRoutes.showNames);
+app.get('/actions/:username', greetRoutes.personCounter);
+app.get('/greeted/:username', greetRoutes.deleteOne);
+app.get('/clear', greetRoutes.clearNames);
 
 
 

@@ -26,9 +26,10 @@
                     <h1 class="text-center">Greetings App</h1><br>
                         {{#if messages.info}}
                         <div class="entry">
-                            <p class="message"> {{messages.info}}</p>
+                            <p class="message" id="infoMessage"> {{messages.info}}</p>
                           
                         </div>
+                         <script type="text/javascript">window.setTimeout("document.getElementById('infoMessage').style.display='none';", 2000); </script>
                         {{/if}}
                     <label for="">Name</label>
                     <input type="text" name="setName" placeholder="Please enter name"><span class="getCounter"><u>{{getCounter}}</u></span><br><br>
@@ -56,9 +57,11 @@
                         <div class="greetMsg"><u><i><strong>{{greetMsg}}</strong></i></u></div><br>
                             {{#if messages.success}}
                         <div class="entry">
-                            <p class="success_message"> {{messages.success}}</p>
+                            <p class="success_message" id="successMessage"> {{messages.success}}</p>
                           
+                    
                         </div>
+                        <script type="text/javascript">window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); </script>
                         {{/if}}
 
                         <div class="users center">

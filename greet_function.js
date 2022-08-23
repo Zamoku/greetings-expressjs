@@ -1,27 +1,26 @@
 module.exports = function GreetFunct() {
 
     let greetMessage = ''
-    // let name = ''
-    // let language = ''
     let object = {}
 
 
 
     function setGreet(name, language) {
+        let actualName = name.charAt(0).toUpperCase() + name.slice(1)
         let regex = /^[a-z]+$/gi
 
-        if (!regex.test(name)) return;
+        if (!regex.test(actualName)) return;
 
-        if (name === null && language !== null) return;
+        if (actualName === null && language !== null) return;
 
-        if (language === "isiXhosa" && name !== "") {
-            greetMessage = "Molo, " + name
+        if (language === "isiXhosa" && actualName !== "") {
+            greetMessage = "Molo, " + actualName
         }
-        else if (language === "English" && name !== "") {
-            greetMessage = "Hello, " + name
+        else if (language === "English" && actualName !== "") {
+            greetMessage = "Hello, " + actualName
         }
-        else if (language === "Afrikaans" && name !== "") {
-            greetMessage = "Hallo, " + name
+        else if (language === "Afrikaans" && actualName !== "") {
+            greetMessage = "Hallo, " + actualName
         }
 
         return greetMessage

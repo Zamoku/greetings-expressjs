@@ -16,7 +16,7 @@ module.exports = function GreetRoutes(greet, greetFunct) {
         await greetFunct.setGreet(
             req.body.setName, req.body.langType
         );
-        await greet.objectAdd(req.body.setName)
+        await greet.objectAdd(req.body.setName, req.body.langType)
 
         let name = req.body.setName
         let language = req.body.langType
@@ -26,10 +26,11 @@ module.exports = function GreetRoutes(greet, greetFunct) {
         if (name === "" && !language) {
             req.flash("info", "Please enter name and select language")
         }
+        //getting the list of users 
+        
 
-        else if (!language) {
+        else if (!language && name) {
             req.flash("info", "Please select language")
-
         }
         else if (name === "" && language) {
             req.flash("info", "Please add name")
@@ -42,12 +43,9 @@ module.exports = function GreetRoutes(greet, greetFunct) {
         res.redirect('/')
     };
 
-
-    //getting the list of users 
     async function showNames(req, res) {
         res.render('greeted', {
             names: await greet.getNames(),
-
         })
 
     }
