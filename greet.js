@@ -5,10 +5,13 @@ module.exports = function greet(db) {
     async function objectAdd(name, language) {
        
         let actualName = name.charAt(0).toUpperCase() + name.slice(1);
+        let regex = /^[a-z A-Z]+$/gi
+
         results = await db.manyOrNone('SELECT name FROM Users where name = $1', [actualName])
         
 
-        if (results.length == 0 && actualName !== "" && language !== undefined) {
+        if (results.length == 0 && actualName !== "" && language !== undefined && regex.test(actualName)) {
+            console.log(!regex.test(actualName))
             results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2) ',
                 [actualName, 1]);
               
