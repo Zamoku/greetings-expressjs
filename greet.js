@@ -9,7 +9,6 @@ module.exports = function greet(db) {
         
 
         if (results.length == 0 && actualName !== "" && language !== undefined) {
-            console.log(language)
             results = await db.any('INSERT INTO Users (name, name_count) VALUES ($1,$2) ',
                 [actualName, 1]);
               
@@ -17,7 +16,6 @@ module.exports = function greet(db) {
         else {
             results = await db.manyOrNone('UPDATE Users SET name_count = name_count+1 where name = $1', [actualName])
         }
-        // console.log(results)
         return results;
     }
 
