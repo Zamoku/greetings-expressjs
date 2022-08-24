@@ -1,7 +1,7 @@
 {
   "name": "greetings-webapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Node.js CI](https://github.com/Zamoku/greetings-expressjs/actions/workflows/node.js.yml/badge.svg)](https://github.com/Zamoku/greetings-expressjs/actions/workflows/node.js.yml)",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -29,5 +29,16 @@
     "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.19",
     "typescript": "^4.7.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zamoku/greetings-expressjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zamoku/greetings-expressjs/issues"
+  },
+  "homepage": "https://github.com/Zamoku/greetings-expressjs#readme"
 }

@@ -11,7 +11,7 @@ const GreetFunct = require('./greet_function')
 const pgPromise = require("pg-promise")
 const pgp = pgPromise({})
 
-const GreetService = require('./greet');
+// const GreetService = require('./greet');
 
 
 
